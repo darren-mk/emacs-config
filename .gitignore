@@ -72,4 +72,7 @@ amx-items
 smex-items
 cider-history
 
+# url
+url/
+
 # End of https://www.gitignore.io/api/emacs
