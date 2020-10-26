@@ -12,14 +12,15 @@
 ;;; Code-editing features
 (add-to-list 'load-path "~/.emacs.d/mod/edt")
 (load "_company.el") ;; company
-;;(load "_lsp.el") ;; lsp
-;;(load "_eglot.el") ;; eglot
 (load "_flycheck.el") ;; flycheck
-;;(load "_yasnippet.el") ;; yasnippet
 (load "_backup.el") ;; back up previous save
 (load "_yesno.el") ;; yes/no to y/n format
 (load "_path.el") ;; get environment variables like path
 (load "_paredit.el") ;; paredit
+(load "_autocomplete.el") ;; autocomplete
+(load "_yasnippet.el") ;; yasnippet
+;;(load "_lsp.el") ;; lsp
+;;(load "_eglot.el") ;; eglot
 ;;(load "_parinfer.el") ;; parinfer
 ;;(load "_smx.el") ;; smex
 
@@ -42,7 +43,8 @@
 (load "_py.el") ;; python
 (load "_clj.el") ;; clojure
 (load "_cs.el") ;; csharp
-(load "_fs.el") ;; fsharp
+;;(load "_cpp.el") ;; c++
+;;(load "_fs.el") ;; fsharp
 ;;(load "_rkt.el") ;; racket
 ;;(load "_ml.el") ;; ocaml
 ;;(load "_hs.el") ;; haskell

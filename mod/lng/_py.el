@@ -1,4 +1,5 @@
 ;; elpy
+;; https://github.com/jorgenschaefer/elpy
 (ensure-installed-and-require 'elpy)
 (elpy-enable)
 ;; flycheck 
