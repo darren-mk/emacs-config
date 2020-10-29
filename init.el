@@ -43,7 +43,7 @@
 (load "_el.el") ;; emacs lisp
 (load "_py.el") ;; python
 (load "_clj.el") ;; clojure
-(load "_cs.el") ;; csharp
+;;(load "_cs.el") ;; csharp
 ;;(load "_cpp.el") ;; c++
 ;;(load "_fs.el") ;; fsharp
 ;;(load "_rkt.el") ;; racket
