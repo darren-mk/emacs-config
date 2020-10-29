@@ -8,6 +8,7 @@
 (add-to-list 'load-path "~/.emacs.d/mod/nav")
 (load "_ido.el") ;; ido
 (load "_scroll.el") ;; scrolling
+(load "_tree.el") ;; icons
 
 ;;; Code-editing features
 (add-to-list 'load-path "~/.emacs.d/mod/edt")
@@ -30,7 +31,7 @@
 (load "_line.el") ;; line
 (load "_space.el") ;; space
 (load "_font.el") ;; font
-(load "_rainbow-delimiters.el") ;; rainbow delimiters
+(load "_delimit.el") ;; rainbow delimiters
 
 ;;; Load language configs
 (add-to-list 'load-path "~/.emacs.d/mod/lng")
@@ -68,7 +69,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (dracula-theme badger-theme alect-light alect-theme parinfer lilypond-mode crm-custom ido-yes-or-no amx ido-completing-read+))))
+    (all-the-icons-dired-mode dracula-theme badger-theme alect-light alect-theme parinfer lilypond-mode crm-custom ido-yes-or-no amx ido-completing-read+))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
