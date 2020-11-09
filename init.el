@@ -20,8 +20,8 @@
 (load "_paredit.el") ;; paredit
 (load "_autocomplete.el") ;; autocomplete
 (load "_yasnippet.el") ;; yasnippet
-;;(load "_lsp.el") ;; lsp
-;;(load "_eglot.el") ;; eglot
+(load "_lsp.el") ;; lsp
+(load "_eglot.el") ;; eglot
 ;;(load "_parinfer.el") ;; parinfer
 ;;(load "_smx.el") ;; smex
 
@@ -42,7 +42,8 @@
 (load "_yaml.el") ;; yaml
 (load "_el.el") ;; emacs lisp
 (load "_py.el") ;; python
-(load "_clj.el") ;; clojure
+;;(load "_dart.el") ;; dart
+;;(load "_clj.el") ;; clojure
 ;;(load "_cs.el") ;; csharp
 ;;(load "_cpp.el") ;; c++
 ;;(load "_fs.el") ;; fsharp
