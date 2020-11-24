@@ -42,17 +42,11 @@
 (load "_yaml.el") ;; yaml
 (load "_el.el") ;; emacs lisp
 (load "_py.el") ;; python
-(load "_clj.el") ;; clojure
-;;(load "_dart.el") ;; dart
+(load "_hy.el") ;; hy
+;;(load "_clj.el") ;; clojure
 ;;(load "_cs.el") ;; csharp
 ;;(load "_cpp.el") ;; c++
-;;(load "_fs.el") ;; fsharp
 ;;(load "_rkt.el") ;; racket
-;;(load "_ml.el") ;; ocaml
-;;(load "_hs.el") ;; haskell
-;;(load "_elm.el") ;; elm
-;;(load "_hy.el") ;; hy
-;;(load "_lisp.el") ;; common lisp, needs quicklisp
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/thm")
@@ -69,8 +63,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (all-the-icons-dired-mode dracula-theme badger-theme alect-light alect-theme parinfer lilypond-mode crm-custom ido-yes-or-no amx ido-completing-read+))))
+   '(all-the-icons-dired-mode dracula-theme badger-theme alect-light alect-theme parinfer lilypond-mode crm-custom ido-yes-or-no amx ido-completing-read+)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
