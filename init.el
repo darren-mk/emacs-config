@@ -42,11 +42,12 @@
 (load "_yaml.el") ;; yaml
 (load "_el.el") ;; emacs lisp
 (load "_py.el") ;; python
+(load "_clj.el") ;; clojure
+(load "_rkt.el") ;; racket
 (load "_hy.el") ;; hy
-;;(load "_clj.el") ;; clojure
 ;;(load "_cs.el") ;; csharp
 ;;(load "_cpp.el") ;; c++
-;;(load "_rkt.el") ;; racket
+
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/thm")
