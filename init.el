@@ -9,6 +9,7 @@
 (load "_ido.el") ;; ido
 (load "_scroll.el") ;; scrolling
 (load "_tree.el") ;; icons
+(load "_dired.el") ;; dired
 
 ;;; Code-editing features
 (add-to-list 'load-path "~/.emacs.d/mod/edt")
