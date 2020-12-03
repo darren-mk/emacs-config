@@ -8,7 +8,6 @@
 (add-to-list 'load-path "~/.emacs.d/mod/nav")
 (load "_ido.el") ;; ido
 (load "_scroll.el") ;; scrolling
-(load "_tree.el") ;; icons
 (load "_dired.el") ;; dired
 
 ;;; Code-editing features
@@ -46,6 +45,7 @@
 (load "_clj.el") ;; clojure
 (load "_rkt.el") ;; racket
 (load "_hy.el") ;; hy
+(load "_hs.el") ;; haskell
 ;;(load "_cs.el") ;; csharp
 ;;(load "_cpp.el") ;; c++
 

@@ -1,7 +1,3 @@
-;;; _racket.el --- Config for Racket
-;;; Commentary:
-;;; Code:
-
 ;; set path to racket program
 (defvar racket-racket-program "/usr/bin/racket")
 (defvar racket-raco-program "/usr/bin/raco")
@@ -12,6 +8,3 @@
 
 ;; attach paredit
 (add-hook 'racket-mode-hook #'enable-paredit-mode)
-
-(provide '_racket)
-;;; _racket.el ends here
