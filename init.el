@@ -32,6 +32,7 @@
 (load "_space.el") ;; space
 (load "_font.el") ;; font
 (load "_delimit.el") ;; rainbow delimiters
+(load "_showparen.el") ;; show-paren-mode
 
 ;;; Load language configs
 (add-to-list 'load-path "~/.emacs.d/mod/lng")
