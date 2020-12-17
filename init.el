@@ -43,10 +43,11 @@
 (load "_yaml.el") ;; yaml
 (load "_el.el") ;; emacs lisp
 (load "_py.el") ;; python
-(load "_clj.el") ;; clojure
-(load "_rkt.el") ;; racket
-(load "_fs.el") ;; fsharp
-(load "_hs.el") ;; haskell
+(load "_lisp.el") ;; common lisp
+;;(load "_clj.el") ;; clojure
+;;(load "_rkt.el") ;; racket
+;;(load "_fs.el") ;; fsharp
+;;(load "_hs.el") ;; haskell
 ;;(load "_hy.el") ;; hy
 ;;(load "_cs.el") ;; csharp
 ;;(load "_cpp.el") ;; c++
