@@ -18,7 +18,7 @@
 (load "_yesno.el") ;; yes/no to y/n format
 (load "_path.el") ;; get environment variables like path
 (load "_paredit.el") ;; paredit
-;;(load "_autocomplete.el") ;; autocomplete
+(load "_autocomplete.el") ;; autocomplete
 ;;(load "_yasnippet.el") ;; yasnippet
 ;;(load "_lsp.el") ;; lsp
 ;;(load "_eglot.el") ;; eglot
@@ -37,19 +37,19 @@
 ;;; Load language configs
 (add-to-list 'load-path "~/.emacs.d/mod/lng")
 (load "_org.el") ;; org
-(load "_html.el") ;; web
+(load "_web.el") ;; web - html, css, razor, cshtml
 (load "_json.el") ;; json
 (load "_js.el") ;; javascript and typescript
 (load "_yaml.el") ;; yaml
 (load "_el.el") ;; emacs lisp
 (load "_py.el") ;; python
+(load "_hy.el") ;; hy
 (load "_lisp.el") ;; common lisp
+(load "_cs.el") ;; csharp
 ;;(load "_clj.el") ;; clojure
 ;;(load "_rkt.el") ;; racket
 ;;(load "_fs.el") ;; fsharp
 ;;(load "_hs.el") ;; haskell
-;;(load "_hy.el") ;; hy
-;;(load "_cs.el") ;; csharp
 ;;(load "_cpp.el") ;; c++
 
 ;;; Load theme configs
