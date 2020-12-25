@@ -12,7 +12,7 @@
 
 ;;; Code-editing features
 (add-to-list 'load-path "~/.emacs.d/mod/edt")
-(load "_company.el") ;; company
+;;(load "_company.el") ;; company
 (load "_flycheck.el") ;; flycheck
 (load "_backup.el") ;; back up previous save
 (load "_yesno.el") ;; yes/no to y/n format
