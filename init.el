@@ -2,7 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d/mod/pck")
 (load "_repositories.el") ;; repositories
 (load "_ensure.el") ;; install / require
-(load "_use-package.el") ;; use-package
+;;(load "_use-package.el") ;; use-package
 
 ;;; Navigation
 (add-to-list 'load-path "~/.emacs.d/mod/nav")
@@ -42,11 +42,11 @@
 (load "_js.el") ;; javascript and typescript
 (load "_yaml.el") ;; yaml
 (load "_el.el") ;; emacs lisp
-(load "_py.el") ;; python
-(load "_hy.el") ;; hy
-(load "_lisp.el") ;; common lisp
-(load "_cs.el") ;; csharp
-(load "_clj.el") ;; clojure
+;;(load "_py.el") ;; python
+;;(load "_hy.el") ;; hy
+;;(load "_lisp.el") ;; common lisp
+;;(load "_cs.el") ;; csharp
+;;(load "_clj.el") ;; clojure
 ;;(load "_rkt.el") ;; racket
 ;;(load "_fs.el") ;; fsharp
 ;;(load "_hs.el") ;; haskell
