@@ -36,12 +36,12 @@
 
 ;;; Load language configs
 (add-to-list 'load-path "~/.emacs.d/mod/lng")
-(load "_org.el") ;; org
-(load "_web.el") ;; web - html, css, razor, cshtml
-(load "_json.el") ;; json
-(load "_js.el") ;; javascript and typescript
-(load "_yaml.el") ;; yaml
 (load "_el.el") ;; emacs lisp
+(load "_org.el") ;; org
+;;(load "_web.el") ;; web - html, css, razor, cshtml
+;;(load "_json.el") ;; json
+;;(load "_js.el") ;; javascript and typescript
+;;(load "_yaml.el") ;; yaml
 ;;(load "_scm.el") ;; scheme
 ;;(load "_py.el") ;; python
 ;;(load "_hy.el") ;; hy
