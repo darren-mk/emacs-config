@@ -38,18 +38,18 @@
 (add-to-list 'load-path "~/.emacs.d/mod/lng")
 (load "_el.el") ;; emacs lisp
 (load "_org.el") ;; org
-;;(load "_web.el") ;; web - html, css, razor, cshtml
-;;(load "_json.el") ;; json
-;;(load "_js.el") ;; javascript and typescript
-;;(load "_yaml.el") ;; yaml
+(load "_web.el") ;; web - html, css, razor, cshtml
+(load "_json.el") ;; json
+(load "_js.el") ;; javascript and typescript
+(load "_yaml.el") ;; yaml
 ;;(load "_scm.el") ;; scheme
-;;(load "_py.el") ;; python
+(load "_py.el") ;; python
 ;;(load "_hy.el") ;; hy
-(load "_lisp.el") ;; common lisp
+;;(load "_lisp.el") ;; common lisp
 ;;(load "_cs.el") ;; csharp
 (load "_clj.el") ;; clojure
 ;;(load "_rkt.el") ;; racket
-;;(load "_fs.el") ;; fsharp
+(load "_fs.el") ;; fsharp
 ;;(load "_hs.el") ;; haskell
 ;;(load "_cpp.el") ;; c++
 
@@ -68,7 +68,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(all-the-icons-dired-mode dracula-theme badger-theme alect-light alect-theme parinfer lilypond-mode crm-custom ido-yes-or-no amx ido-completing-read+)))
+   (quote
+    (all-the-icons-dired-mode dracula-theme badger-theme alect-light alect-theme parinfer lilypond-mode crm-custom ido-yes-or-no amx ido-completing-read+))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
