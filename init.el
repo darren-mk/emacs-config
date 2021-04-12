@@ -45,7 +45,7 @@
 ;;(load "_scm.el") ;; scheme
 (load "_py.el") ;; python
 ;;(load "_hy.el") ;; hy
-;;(load "_lisp.el") ;; common lisp
+(load "_lisp.el") ;; common lisp
 ;;(load "_cs.el") ;; csharp
 (load "_clj.el") ;; clojure
 (load "_rkt.el") ;; racket
