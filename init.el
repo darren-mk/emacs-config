@@ -19,6 +19,7 @@
 (load "_path.el") ;; get environment variables like path
 (load "_paredit.el") ;; paredit
 (load "_autocomplete.el") ;; autocomplete
+(load "_magit.el") ;; magit
 ;;(load "_yasnippet.el") ;; yasnippet
 ;;(load "_lsp.el") ;; lsp
 ;;(load "_eglot.el") ;; eglot
@@ -26,7 +27,7 @@
 ;;(load "_smx.el") ;; smex
 
 ;;; Load UI configs
-(add-to-list 'load-path "~/.emacs.d/mod/ifc")
+(add-to-list 'load-path "~/.emacs.d/mod/vsl")
 (load "_bar.el") ;; bar
 (load "_line.el") ;; line
 (load "_space.el") ;; space
@@ -45,12 +46,12 @@
 ;;(load "_scm.el") ;; scheme
 (load "_py.el") ;; python
 ;;(load "_hy.el") ;; hy
-(load "_lisp.el") ;; common lisp
+;;(load "_lisp.el") ;; common lisp
 ;;(load "_cs.el") ;; csharp
 (load "_clj.el") ;; clojure
-(load "_rkt.el") ;; racket
-(load "_fs.el") ;; fsharp
-(load "_hs.el") ;; haskell
+;;(load "_rkt.el") ;; racket
+;;(load "_fs.el") ;; fsharp
+;;(load "_hs.el") ;; haskell
 ;;(load "_cpp.el") ;; c++
 
 ;;; Load theme configs
