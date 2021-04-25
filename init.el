@@ -43,6 +43,7 @@
 (load "_json.el") ;; json
 (load "_js.el") ;; javascript and typescript
 (load "_yaml.el") ;; yaml
+(load "_md.el") ;; md
 ;;(load "_scm.el") ;; scheme
 (load "_py.el") ;; python
 ;;(load "_hy.el") ;; hy
