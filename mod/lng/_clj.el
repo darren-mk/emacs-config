@@ -8,9 +8,8 @@
 ;;(add-hook 'cider-repl-mode-hook #'company-mode)
 ;;(add-hook 'cider-mode-hook #'company-mode)
 
-;; flycheck
-;;(ensure-installed-and-require 'flycheck-clojure)
-;;(eval-after-load 'flycheck '(flycheck-clojure-setup))
+;; joker
+(ensure-installed-and-require 'flycheck-joker)
 
 ;; provides minibuffer documentation for the code you're typing into the repl
 ;;(add-hook 'cider-mode-hook 'eldoc-mode)
@@ -25,4 +24,3 @@
 ;; install clj-kondo to the os level first
 ;; https://github.com/borkdude/flycheck-clj-kondo
 ;;(ensure-installed-and-require 'flycheck-clj-kondo)
-
