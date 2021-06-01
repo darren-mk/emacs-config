@@ -44,17 +44,15 @@
 (load "_js.el") ;; javascript and typescript
 (load "_yaml.el") ;; yaml
 (load "_md.el") ;; md
-;;(load "_scm.el") ;; scheme
 (load "_py.el") ;; python
-;;(load "_hy.el") ;; hy
-;;(load "_lisp.el") ;; common lisp
-;;(load "_cs.el") ;; csharp
 (load "_clj.el") ;; clojure
-;;(load "_rkt.el") ;; racket
-;;(load "_fs.el") ;; fsharp
+(load "_rkt.el") ;; racket
 (load "_hs.el") ;; haskell
 (load "_elm.el") ;; elm
+;;(load "_lisp.el") ;; common lisp
+;;(load "_scm.el") ;; scheme
 ;;(load "_cpp.el") ;; c++
+;;(load "_cs.el") ;; csharp
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/thm")
