@@ -41,6 +41,7 @@
 (load "_org.el") ;; org
 (load "_web.el") ;; web - html, css, razor, cshtml
 (load "_json.el") ;; json
+(load "_rest.el") ;; restclient
 (load "_js.el") ;; javascript and typescript
 (load "_yaml.el") ;; yaml
 (load "_md.el") ;; md
@@ -69,7 +70,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(flycheck-clojure all-the-icons-dired-mode dracula-theme badger-theme alect-light alect-theme parinfer lilypond-mode crm-custom ido-yes-or-no amx ido-completing-read+)))
+   (quote
+    (flycheck-clojure all-the-icons-dired-mode dracula-theme badger-theme alect-light alect-theme parinfer lilypond-mode crm-custom ido-yes-or-no amx ido-completing-read+))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

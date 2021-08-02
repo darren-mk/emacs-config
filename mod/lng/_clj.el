@@ -24,3 +24,7 @@
 ;; install clj-kondo to the os level first
 ;; https://github.com/borkdude/flycheck-clj-kondo
 ;;(ensure-installed-and-require 'flycheck-clj-kondo)
+
+;; paredit hook
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
+(add-hook 'clojure-mode-hook 'enable-paredit-mode)
