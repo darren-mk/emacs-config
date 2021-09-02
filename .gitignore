@@ -1,8 +1,5 @@
-
-# Created by https://www.gitignore.io/api/emacs
-# Edit at https://www.gitignore.io/?templates=emacs
-
 ### Emacs ###
+
 # -*- mode: gitignore; -*-
 *~
 \#*\#
@@ -26,6 +23,7 @@ tramp
 *_flymake.*
 
 # eshell files
+/eshell
 /eshell/history
 /eshell/lastdir
 
@@ -54,6 +52,9 @@ dist/
 # Flycheck
 flycheck_*.el
 
+# LSP
+.lsp-*
+
 # server auth directory
 /server/
 
@@ -76,6 +77,4 @@ cider-history
 url/
 
 # transient
-/transient 
-
-# End of https://www.gitignore.io/api/emacs
+/transient

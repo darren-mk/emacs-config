@@ -2,7 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d/mod/pck")
 (load "_repositories.el") ;; repositories
 (load "_ensure.el") ;; install / require
-;;(load "_use-package.el") ;; use-package
+(load "_use-package.el") ;; use-package
 
 ;;; Navigation
 (add-to-list 'load-path "~/.emacs.d/mod/nav")
@@ -20,8 +20,8 @@
 (load "_paredit.el") ;; paredit
 (load "_autocomplete.el") ;; autocomplete
 (load "_magit.el") ;; magit
+(load "_lsp.el") ;; lsp
 ;;(load "_yasnippet.el") ;; yasnippet
-;;(load "_lsp.el") ;; lsp
 ;;(load "_eglot.el") ;; eglot
 ;;(load "_parinfer.el") ;; parinfer
 ;;(load "_smx.el") ;; smex
@@ -50,6 +50,7 @@
 (load "_rkt.el") ;; racket
 (load "_hs.el") ;; haskell
 (load "_elm.el") ;; elm
+(load "_rust.el") ;; rust
 ;;(load "_lisp.el") ;; common lisp
 ;;(load "_scm.el") ;; scheme
 ;;(load "_cpp.el") ;; c++
