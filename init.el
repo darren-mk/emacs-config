@@ -50,10 +50,7 @@
 (load "_rkt.el") ;; racket
 (load "_hs.el") ;; haskell
 (load "_elm.el") ;; elm
-;;(load "_lisp.el") ;; common lisp
 ;;(load "_scm.el") ;; scheme
-;;(load "_cpp.el") ;; c++
-;;(load "_cs.el") ;; csharp
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/thm")
