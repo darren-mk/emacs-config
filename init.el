@@ -45,7 +45,6 @@
 (load "_js.el") ;; javascript and typescript
 (load "_yaml.el") ;; yaml
 (load "_md.el") ;; md
-(load "_py.el") ;; python
 (load "_clj.el") ;; clojure
 (load "_rkt.el") ;; racket
 (load "_hs.el") ;; haskell
