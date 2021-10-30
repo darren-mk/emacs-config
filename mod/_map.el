@@ -49,7 +49,7 @@
 (load "_rkt.el") ;; racket
 (load "_hs.el") ;; haskell
 (load "_elm.el") ;; elm
-;;(load "_scm.el") ;; scheme
+(load "_lisp.el") ;; lisp (bscl)
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/thm")
