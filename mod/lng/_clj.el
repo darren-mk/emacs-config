@@ -5,14 +5,14 @@
 
 ;; cider to company 
 ;; https://docs.cider.mx/cider/usage/code_completion.html
-;;(add-hook 'cider-repl-mode-hook #'company-mode)
-;;(add-hook 'cider-mode-hook #'company-mode)
+;; (add-hook 'cider-repl-mode-hook #'company-mode)
+;; (add-hook 'cider-mode-hook #'company-mode)
 
 ;; joker
-(ensure-installed-and-require 'flycheck-joker)
+;; (ensure-installed-and-require 'flycheck-joker)
 
 ;; provides minibuffer documentation for the code you're typing into the repl
-;;(add-hook 'cider-mode-hook 'eldoc-mode)
+;; (add-hook 'cider-mode-hook 'eldoc-mode)
 
 ;; Use clojure mode for other extensions
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))

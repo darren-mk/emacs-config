@@ -1,6 +1,5 @@
 ;; set path to racket program
-(defvar racket-racket-program "/Applications/Racket v8.3/bin/racket")
-(defvar racket-raco-program "/Applications/Racket v8.3/bin/raco")
+(defvar racket-program "/Applications/Racket v8.3/bin/racket")
 
 ;; ensure racket modoe for enacs
 (ensure-installed-and-require 'racket-mode)

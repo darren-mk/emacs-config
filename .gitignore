@@ -78,3 +78,9 @@ url/
 
 # transient
 /transient
+
+# fsharp
+FsAutoComplete/
+
+# mac
+.DS_Store

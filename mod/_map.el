@@ -12,17 +12,17 @@
 
 ;;; Code-editing features
 (add-to-list 'load-path "~/.emacs.d/mod/edt")
-;;(load "_company.el") ;; company
+(load "_magit.el") ;; magit
 (load "_flycheck.el") ;; flycheck
 (load "_backup.el") ;; back up previous save
 (load "_yesno.el") ;; yes/no to y/n format
 (load "_path.el") ;; get environment variables like path
 (load "_paredit.el") ;; paredit
 (load "_autocomplete.el") ;; autocomplete
-(load "_magit.el") ;; magit
 (load "_lsp.el") ;; lsp
+(load "_eglot.el") ;; eglot
+;;(load "_company.el") ;; company
 ;;(load "_yasnippet.el") ;; yasnippet
-;;(load "_eglot.el") ;; eglot
 ;;(load "_parinfer.el") ;; parinfer
 ;;(load "_smx.el") ;; smex
 
@@ -32,7 +32,7 @@
 (load "_line.el") ;; line
 (load "_space.el") ;; space
 (load "_font.el") ;; font
-(load "_delimit.el") ;; rainbow delimiters
+(load "_rainbow.el") ;; rainbow delimiters
 (load "_showparen.el") ;; show-paren-mode
 
 ;;; Load language configs
@@ -46,10 +46,11 @@
 (load "_yaml.el") ;; yaml
 (load "_md.el") ;; md
 (load "_clj.el") ;; clojure
-(load "_rkt.el") ;; racket
-(load "_hs.el") ;; haskell
-(load "_elm.el") ;; elm
-(load "_lisp.el") ;; lisp (sbcl)
+;;(load "_lisp.el") ;; lisp (sbcl)
+;;(load "_rkt.el") ;; racket
+;;(load "_hs.el") ;; haskell
+;;(load "_elm.el") ;; elm
+;;(load "_fs.el") ;; fsharp
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/thm")
