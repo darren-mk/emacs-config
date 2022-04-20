@@ -46,7 +46,8 @@
 (load "_yaml.el") ;; yaml
 (load "_md.el") ;; md
 (load "_clj.el") ;; clojure
-;;(load "_lisp.el") ;; lisp (sbcl)
+(load "_gql.el") ;; graphql
+(load "_lisp.el") ;; lisp (sbcl)
 ;;(load "_rkt.el") ;; racket
 ;;(load "_hs.el") ;; haskell
 ;;(load "_elm.el") ;; elm
