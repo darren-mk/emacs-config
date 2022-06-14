@@ -23,3 +23,5 @@
   (lsp-ui-peek-always-show t)
   (lsp-ui-sideline-show-hover t)
   (lsp-ui-doc-enable nil))
+
+(ensure-installed-and-require 'lsp-treemacs)

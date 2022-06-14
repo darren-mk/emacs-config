@@ -20,6 +20,18 @@
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
 
+;; lsp
+;; https://emacs-lsp.github.io/lsp-mode/tutorials/clojure-guide/
+(add-hook 'clojure-mode-hook 'lsp)
+(add-hook 'clojurescript-mode-hook 'lsp)
+(add-hook 'clojurec-mode-hook 'lsp)
+(setq gc-cons-threshold (* 100 1024 1024)
+      read-process-output-max (* 1024 1024)
+      treemacs-space-between-root-nodes nil
+      company-minimum-prefix-length 1
+      lsp-lens-enable t
+      lsp-signature-auto-activate nil)
+
 ;; cider to company 
 ;; https://docs.cider.mx/cider/usage/code_completion.html
 ;; (add-hook 'cider-repl-mode-hook #'company-mode)
