@@ -45,13 +45,14 @@
 (load "_js.el") ;; javascript and typescript
 (load "_yaml.el") ;; yaml
 (load "_md.el") ;; md
-(load "_clj.el") ;; clojure
 (load "_gql.el") ;; graphql
-(load "_lisp.el") ;; lisp (sbcl)
+(load "_hs.el") ;; haskell
+(load "_purs.el") ;; purescript
+(load "_fs.el") ;; fsharp
+(load "_clj.el") ;; clojure
+;;(load "_lisp.el") ;; lisp (sbcl)
 ;;(load "_rkt.el") ;; racket
-;;(load "_hs.el") ;; haskell
 ;;(load "_elm.el") ;; elm
-;;(load "_fs.el") ;; fsharp
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/thm")
