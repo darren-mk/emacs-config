@@ -50,8 +50,9 @@
 (load "_purs.el") ;; purescript
 (load "_fs.el") ;; fsharp
 (load "_clj.el") ;; clojure
-;;(load "_lisp.el") ;; lisp (sbcl)
-;;(load "_rkt.el") ;; racket
+(load "_lisp.el") ;; lisp (sbcl)
+(load "_rkt.el") ;; racket
+(load "_py.el") ;; python
 ;;(load "_elm.el") ;; elm
 
 ;;; Load theme configs
