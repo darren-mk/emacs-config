@@ -46,13 +46,13 @@
 (load "_yaml.el") ;; yaml
 (load "_md.el") ;; md
 (load "_gql.el") ;; graphql
-(load "_hs.el") ;; haskell
-(load "_purs.el") ;; purescript
-(load "_fs.el") ;; fsharp
 (load "_clj.el") ;; clojure
-(load "_lisp.el") ;; lisp (sbcl)
-(load "_rkt.el") ;; racket
 (load "_py.el") ;; python
+;;(load "_lisp.el") ;; lisp (sbcl)
+;;(load "_rkt.el") ;; racket
+;;(load "_hs.el") ;; haskell
+;;(load "_purs.el") ;; purescript
+;;(load "_fs.el") ;; fsharp
 ;;(load "_elm.el") ;; elm
 
 ;;; Load theme configs
