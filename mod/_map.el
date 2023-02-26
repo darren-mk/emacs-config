@@ -48,12 +48,13 @@
 (load "_gql.el") ;; graphql
 (load "_clj.el") ;; clojure
 (load "_py.el") ;; python
-;;(load "_lisp.el") ;; lisp (sbcl)
-;;(load "_rkt.el") ;; racket
-;;(load "_hs.el") ;; haskell
-;;(load "_purs.el") ;; purescript
-;;(load "_fs.el") ;; fsharp
-;;(load "_elm.el") ;; elm
+(load "_lisp.el") ;; lisp (sbcl)
+(load "_rkt.el") ;; racket
+(load "_hs.el") ;; haskell
+(load "_purs.el") ;; purescript
+(load "_fs.el") ;; fsharp
+(load "_elm.el") ;; elm
+(load "_dart.el") ;; dart
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/thm")

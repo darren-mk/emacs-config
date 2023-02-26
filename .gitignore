@@ -84,3 +84,5 @@ FsAutoComplete/
 
 # mac
 .DS_Store
+
+.dap-breakpoints
