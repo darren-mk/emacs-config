@@ -12,7 +12,13 @@
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type 'cabal-repl)
- '(ignored-local-variable-values '((Base . 10) (Package . CL-USER) (Syntax . COMMON-LISP)))
+ '(ignored-local-variable-values
+   '((Package . JSON)
+     (Syntax . ANSI-COMMON-LISP)
+     (Syntax . ANSI-Common-Lisp)
+     (Base . 10)
+     (Package . CL-USER)
+     (Syntax . COMMON-LISP)))
  '(package-selected-packages
    '(flycheck-clojure all-the-icons-dired-mode dracula-theme badger-theme alect-light alect-theme parinfer lilypond-mode crm-custom ido-yes-or-no amx ido-completing-read+))
  '(warning-suppress-types '((lsp-mode))))
