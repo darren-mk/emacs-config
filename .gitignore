@@ -76,8 +76,9 @@ cider-history
 # url
 url/
 
-# transient
+# temporary
 /transient
+/workspace
 
 # fsharp
 FsAutoComplete/

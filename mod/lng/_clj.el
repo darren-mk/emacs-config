@@ -13,7 +13,9 @@
 
 ;; other files
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
-(add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.clj.*$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.cljc.*$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojurescript-mode))
 (add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
 
 ;; paredit
