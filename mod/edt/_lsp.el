@@ -4,6 +4,10 @@
 ;; (ensure-installed-and-require 'company-lsp)
 ;; (push 'company-lsp company-backends)
 
+;; svg issue with lsp on mac for version 28
+;; ref: https://emacs.stackexchange.com/questions/74289/emacs-28-2-error-in-macos-ventura-image-type-invalid-image-type-svg
+(add-to-list 'image-types 'svg)
+
 (use-package lsp-mode
   :ensure
   :commands lsp
