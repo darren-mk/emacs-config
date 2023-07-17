@@ -58,9 +58,10 @@
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/thm")
-;;(load "_spm.el") ;; spacemacs theme
+(load "_spm.el") ;; spacemacs theme
 ;;(load "_sld.el") ;; solarized theme
 ;;(load "_tmr.el") ;; tomorrow theme
 ;;(load "_bdg.el") ;; badger theme
 ;;(load "_drc.el") ;; dracula theme
-(load "_doo.el") ;; doom theme
+;;(load "_doo.el")
+;; doom theme
