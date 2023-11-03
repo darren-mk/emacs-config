@@ -1,3 +1,5 @@
 (ensure-installed-and-require 'fsharp-mode)
 (ensure-installed-and-require 'eglot-fsharp)
 (setq eglot-fsharp-server-version "0.50.0")
+(setq lsp-fsharp-auto-workspace-init t)
+(setq lsp-fsharp-external-autocomplete t)

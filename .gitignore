@@ -87,3 +87,6 @@ FsAutoComplete/
 .DS_Store
 
 .dap-breakpoints
+elpa/
+eshell/
+recentf
