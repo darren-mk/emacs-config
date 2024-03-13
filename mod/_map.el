@@ -44,12 +44,14 @@
 (load "_rest.el") ;; restclient
 (load "_js.el") ;; javascript and typescript
 (load "_yaml.el") ;; yaml
-(load "_md.el") ;; md
+(load "_md.el") ;; markdown
+(load "_mmd.el") ;; mermaid
 ;;(load "_gql.el") ;; graphql
 (load "_clj.el") ;; clojure
 (load "_py.el") ;; python
 (load "_lisp.el") ;; lisp (sbcl)
 (load "_rkt.el") ;; racket
+(load "_ocaml.el") ;; ocaml
 (load "_svelte.el") ;; svelte
 ;;(load "_hs.el") ;; haskell
 ;;(load "_purs.el") ;; purescript
