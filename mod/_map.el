@@ -18,9 +18,9 @@
 (load "_yesno.el") ;; yes/no to y/n format
 (load "_path.el") ;; get environment variables like path
 (load "_paredit.el") ;; paredit
-;;(load "_autocomplete.el") ;; autocomplete
+(load "_autocomplete.el") ;; autocomplete
 (load "_lsp.el") ;; lsp
-(load "_eglot.el") ;; eglot
+;;(load "_eglot.el") ;; eglot
 ;;(load "_company.el") ;; company
 ;;(load "_yasnippet.el") ;; yasnippet
 ;;(load "_parinfer.el") ;; parinfer
@@ -46,13 +46,13 @@
 (load "_yaml.el") ;; yaml
 (load "_md.el") ;; markdown
 (load "_mmd.el") ;; mermaid
-;;(load "_gql.el") ;; graphql
+(load "_gql.el") ;; graphql
 (load "_clj.el") ;; clojure
 (load "_py.el") ;; python
-(load "_lisp.el") ;; lisp (sbcl)
-(load "_rkt.el") ;; racket
-(load "_ocaml.el") ;; ocaml
-(load "_svelte.el") ;; svelte
+;;(load "_lisp.el") ;; lisp (sbcl)
+;;(load "_rkt.el") ;; racket
+;;(load "_ocaml.el") ;; ocaml
+;;(load "_svelte.el") ;; svelte
 ;;(load "_hs.el") ;; haskell
 ;;(load "_purs.el") ;; purescript
 ;;(load "_fs.el") ;; fsharp
