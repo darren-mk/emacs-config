@@ -90,3 +90,5 @@ FsAutoComplete/
 elpa/
 eshell/
 recentf
+
+eln-cache
