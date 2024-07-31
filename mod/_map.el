@@ -50,6 +50,7 @@
 (load "_gql.el") ;; graphql
 (load "_clj.el") ;; clojure
 (load "_py.el") ;; python
+(load "_groovy.el") ;; groovy
 ;;(load "_lisp.el") ;; lisp (sbcl)
 ;;(load "_rkt.el") ;; racket
 ;;(load "_ocaml.el") ;; ocaml
@@ -63,10 +64,9 @@
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/thm")
-(load "_spm.el") ;; spacemacs theme
+;;(load "_spm.el") ;; spacemacs theme
 ;;(load "_sld.el") ;; solarized theme
 ;;(load "_tmr.el") ;; tomorrow theme
 ;;(load "_bdg.el") ;; badger theme
 ;;(load "_drc.el") ;; dracula theme
-;;(load "_doo.el")
-;; doom theme
+(load "_doo.el") ;; doom theme
