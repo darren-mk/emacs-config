@@ -1,1 +1,2 @@
-(ensure-installed-and-require 'eglot)
+(use-package eglot
+  :ensure t)
