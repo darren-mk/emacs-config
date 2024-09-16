@@ -6,10 +6,11 @@
 
 ;;; Navigation
 (add-to-list 'load-path "~/.emacs.d/mod/nav")
-(load "_ido.el") ;; ido
-(load "_scroll.el") ;; scrolling
-(load "_dired.el") ;; dired
-(load "_treemacs.el") ;; treemacs
+(load "_ido.el")
+(load "_scroll.el")
+(load "_dired.el")
+(load "_projectile.el")
+(load "_treemacs.el")
 
 ;;; Code-editing features
 (add-to-list 'load-path "~/.emacs.d/mod/edt")
@@ -22,8 +23,8 @@
 (load "_autocomplete.el") ;; autocomplete
 (load "_lsp.el") ;; lsp
 (load "_eglot.el") ;; eglot
-;;(load "_company.el") ;; company
-;;(load "_yasnippet.el") ;; yasnippet
+(load "_company.el") ;; company
+(load "_yasnippet.el") ;; yasnippet
 ;;(load "_parinfer.el") ;; parinfer
 ;;(load "_smx.el") ;; smex
 
@@ -38,20 +39,21 @@
 
 ;;; Load language configs
 (add-to-list 'load-path "~/.emacs.d/mod/lng")
-(load "_el.el") ;; emacs lisp
-(load "_org.el") ;; org
-(load "_web.el") ;; web - html, css, razor, cshtml
-(load "_json.el") ;; json
-(load "_rest.el") ;; restclient
-(load "_js.el") ;; javascript and typescript
-(load "_yaml.el") ;; yaml
-(load "_md.el") ;; markdown
-(load "_mmd.el") ;; mermaid
-(load "_gql.el") ;; graphql
-(load "_clj.el") ;; clojure
-(load "_py.el") ;; python
-(load "_groovy.el") ;; groovy
-(load "_fs.el") ;; fsharp
+(load "_el.el")
+(load "_org.el")
+(load "_web.el")
+(load "_json.el")
+(load "_rest.el")
+(load "_js.el")
+(load "_yaml.el")
+(load "_md.el")
+(load "_mmd.el")
+(load "_gql.el")
+(load "_clj.el")
+(load "_py.el")
+(load "_groovy.el")
+(load "_fs.el")
+(load "_sql.el")
 ;;(load "_lisp.el") ;; lisp (sbcl)
 ;;(load "_rkt.el") ;; racket
 ;;(load "_ocaml.el") ;; ocaml

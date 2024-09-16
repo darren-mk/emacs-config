@@ -92,3 +92,6 @@ eshell/
 recentf
 
 eln-cache
+
+projects
+*.eld
