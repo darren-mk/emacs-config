@@ -51,7 +51,7 @@
 (load "_gql.el")
 (load "_clj.el")
 (load "_py.el")
-(load "_groovy.el")
+(load "_go.el")
 (load "_fs.el")
 (load "_sql.el")
 ;;(load "_lisp.el") ;; lisp (sbcl)
