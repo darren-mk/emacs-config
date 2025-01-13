@@ -54,6 +54,8 @@
 (load "_go.el")
 (load "_fs.el")
 (load "_sql.el")
+(load "_rust.el")
+(load "_rb.el")
 ;;(load "_lisp.el") ;; lisp (sbcl)
 ;;(load "_rkt.el") ;; racket
 ;;(load "_ocaml.el") ;; ocaml
@@ -62,7 +64,6 @@
 ;;(load "_purs.el") ;; purescript
 ;;(load "_elm.el") ;; elm
 ;;(load "_dart.el") ;; dart
-;;(load "_rust.el") ;; rust
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/thm")
