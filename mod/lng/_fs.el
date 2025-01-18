@@ -1,3 +1,8 @@
+;; prerequisites:
+;; $ brew install --cask dotnet-sdk
+;; eglot in emacs
+
+;; reference:
 ;; https://arialdomartini.github.io/emacs-fsharp
 
 (use-package fsharp-mode
