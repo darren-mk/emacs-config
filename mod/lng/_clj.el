@@ -1,3 +1,11 @@
+;; install jdk
+;; https://clojure.org/guides/install_clojure#java
+;; brew install --cask temurin@21
+
+;; install clojure cli
+;; https://clojure.org/guides/install_clojure
+;; brew install clojure/tools/clojure
+
 ;; clojure modes
 (ensure-installed-and-require 'clojure-mode)
 (ensure-installed-and-require 'inf-clojure)
