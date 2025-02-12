@@ -48,3 +48,5 @@
   :after corfu
   :config (add-to-list 'corfu-margin-formatters
                        #'nerd-icons-corfu-formatter))
+
+(setq-default fsharp-indent-offset 4)
