@@ -1,8 +1,11 @@
-;; purescript mode
-;; https://github.com/purescript-emacs/purescript-mode
-(ensure-installed-and-require 'purescript-mode)
-;; lsp
-;; https://emacs-lsp.github.io/lsp-mode/page/lsp-purescript/
-;; (lsp-install-server 'pursls)
-;; (add-hook 'purescript-mode-hook 'lsp)
-
+;; brew install spago
+;; brew install purescript
+;; brew install purescript-language-server
+(use-package purescript-mode)
+(add-hook 'purescript-mode-hook 'eglot-ensure)
+(with-eval-after-load 'eglot
+  (add-to-list
+   'eglot-server-programs
+   '(purescript-mode
+     . ("purescript-language-server" "--stdio"))))
+(add-hook 'purescript-mode-hook 'flymake-mode)

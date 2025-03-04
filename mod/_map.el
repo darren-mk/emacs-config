@@ -52,24 +52,24 @@
 (load "_gql.el")
 (load "_clj.el")
 (load "_fs.el")
+(load "_hs.el")
+(load "_purs.el")
 ;;(load "_py.el")
 ;;(load "_go.el")
 ;;(load "_rust.el")
 ;;(load "_rb.el")
-;;(load "_lisp.el") ;; lisp (sbcl)
-;;(load "_rkt.el") ;; racket
-;;(load "_ocaml.el") ;; ocaml
-;;(load "_svelte.el") ;; svelte
-;;(load "_hs.el") ;; haskell
-;;(load "_purs.el") ;; purescript
-;;(load "_elm.el") ;; elm
-;;(load "_dart.el") ;; dart
+;;(load "_lisp.el")
+;;(load "_rkt.el")
+;;(load "_ocaml.el")
+;;(load "_svelte.el")
+;;(load "_elm.el")
+;;(load "_dart.el")
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/thm")
-;;(load "_spm.el") ;; spacemacs theme
+(load "_spm.el") ;; spacemacs theme
 ;;(load "_sld.el") ;; solarized theme
 ;;(load "_tmr.el") ;; tomorrow theme
 ;;(load "_bdg.el") ;; badger theme
 ;;(load "_drc.el") ;; dracula theme
-(load "_doo.el") ;; doom theme
+;;(load "_doo.el") ;; doom theme
