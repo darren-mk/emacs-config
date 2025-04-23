@@ -1,1 +1,3 @@
-(ensure-installed-and-require 'svelte-mode)
+(use-package svelte-mode
+  :ensure t
+  :defer t)

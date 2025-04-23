@@ -1,1 +1,3 @@
-(ensure-installed-and-require 'restclient)
+(use-package restclient
+  :ensure t
+  :defer t)

@@ -7,12 +7,15 @@
 
 (use-package fsharp-mode
   :defer t
-  :ensure t)
+  :ensure t
+  :config (add-hook 'fsharp-mode-hook
+                    'highlight-indentation-mode))
 
 (use-package eglot-fsharp
   :ensure t
   :after fsharp-mode
-  :config (add-hook 'fsharp-mode-hook #'eglot-ensure))
+  :config (add-hook 'fsharp-mode-hook
+                    #'eglot-ensure))
 
 (use-package corfu
   :ensure t
