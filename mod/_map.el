@@ -54,6 +54,7 @@
 (load "_fs.el")
 (load "_go.el")
 (load "_svelte.el")
+(load "_ocaml.el")
 ;;(load "_hs.el")
 ;;(load "_purs.el")
 ;;(load "_py.el")
@@ -61,7 +62,6 @@
 ;;(load "_rb.el")
 ;;(load "_lisp.el")
 ;;(load "_rkt.el")
-;;(load "_ocaml.el")
 ;;(load "_elm.el")
 ;;(load "_dart.el")
 
@@ -71,5 +71,5 @@
 ;;(load "_sld.el") ;; solarized theme
 ;;(load "_tmr.el") ;; tomorrow theme
 ;;(load "_bdg.el") ;; badger theme
-(load "_drc.el") ;; dracula theme
-;;(load "_doo.el") ;; doom theme
+;;(load "_drc.el") ;; dracula theme
+(load "_doo.el") ;; doom theme
