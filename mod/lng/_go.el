@@ -15,3 +15,7 @@
   (remove-hook 'before-save-hook #'lsp-format-buffer t))
 
 (add-hook 'go-mode-hook #'my-go-mode-lsp-disable-formatting)
+
+(use-package gotest
+  :defer t
+  :ensure t)
