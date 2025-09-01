@@ -1,52 +1,42 @@
-;; Add opam emacs directory to your load-path by appending this to your .emacs:
-(let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
-  (when (and opam-share (file-directory-p opam-share))
-    ;; Register Merlin
-    (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
-    (autoload 'merlin-mode "merlin" nil t nil)
-    ;; Automatically start it in OCaml buffers
-    (add-hook 'tuareg-mode-hook 'merlin-mode t)
-    (add-hook 'caml-mode-hook 'merlin-mode t)
-    ;; Use opam switch to lookup ocamlmerlin binary
-    (setq merlin-command 'opam)
-    ;; To easily change opam switches within a given Emacs session, you can
-    ;; install the minor mode https://github.com/ProofGeneral/opam-switch-mode
-    ;; and use one of its "OPSW" menus.
-    ))
-
-;; https://batsov.com/articles/2022/08/23/setting-up-emacs-for-ocaml-development/
-
-;; Major mode for OCaml programming
 (use-package tuareg
   :ensure t
-  :mode (("\\.ocamlinit\\'" . tuareg-mode)))
+  :config
+  (message "Tuareg mode loaded."))
 
-(use-package dune
-  :ensure t)
+(use-package eglot
+  :hook ((tuareg-mode . eglot-ensure))
+  :config
+  (add-to-list 'eglot-server-programs
+               '(tuareg-mode . ("opam" "exec" "--" "ocamllsp")))
+  (message "Eglot configured for OCaml/Melange."))
 
 (use-package utop
   :ensure t
-  :hook (tuareg-mode . utop-minor-mode))
-
-(use-package merlin
-  :ensure t
+  :hook (tuareg-mode . utop-minor-mode)
   :config
-  (add-hook 'tuareg-mode-hook #'merlin-mode)
-  (add-hook 'merlin-mode-hook #'company-mode)
-  (setq merlin-error-after-save nil))
+  (setq utop-command "opam exec -- utop -emacs"))
 
-(use-package merlin-eldoc
+;; ocamlformat on save
+(use-package ocamlformat
   :ensure t
-  :hook (merlin-mode . merlin-eldoc-setup))
-
-(use-package flycheck-ocaml
-  :ensure t
+  :hook ((tuareg-mode . (lambda ()
+                          (add-hook 'before-save-hook
+                                    #'ocamlformat-before-save nil t))))
   :config
-  (flycheck-ocaml-setup))
+  (message "OCamlformat configured."))
 
-(use-package lsp-mode
-  :ensure t
-  :hook (tuareg-mode . lsp)
-  :commands lsp)
+(with-eval-after-load 'utop
+  (define-key utop-minor-mode-map (kbd "C-c C-c") #'utop-eval-phrase))
 
-(setq utop-command "opam exec -- utop -emacs")
+(add-hook 'tuareg-mode-hook
+  (lambda ()
+    (setq-local comment-column 0)
+    ;; Keep comments where you type them:
+    (setq-local comment-indent-function (lambda (&optional _arg) 0))
+    ;; Optional: don’t try to be clever with OCaml block comments
+    (setq-local tuareg-indent-leading-comments nil)))
+
+(add-hook 'tuareg-mode-hook
+  (lambda ()
+    (setq-local comment-style 'multi-line)
+    (setq-local comment-continue "   ")))
