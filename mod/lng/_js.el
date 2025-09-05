@@ -10,8 +10,6 @@
 
 ;; Add file extension types.
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
 
 ;; Enable better imenu
 (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
