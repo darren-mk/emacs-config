@@ -147,3 +147,73 @@
            (if (and (boundp 'completion-at-point-functions)
                     (memq 'lsp-completion-at-point completion-at-point-functions))
                "yes" "no")))
+
+;;; --- Run only the current test (Vitest/Jest) ---
+
+(defun my/ts--detect-runner (root)
+  "Return 'vitest or 'jest if found in ROOT."
+  (let* ((vitest (expand-file-name "node_modules/.bin/vitest" root))
+         (jest   (expand-file-name "node_modules/.bin/jest" root))
+         (pkg    (expand-file-name "package.json" root))
+         (pkgstr (when (file-exists-p pkg)
+                   (with-temp-buffer (insert-file-contents pkg)
+                                     (buffer-string)))))
+    (cond
+     ((file-exists-p vitest) 'vitest)
+     ((file-exists-p jest)   'jest)
+     ((and pkgstr (string-match-p "vitest" pkgstr)) 'vitest)
+     ((and pkgstr (string-match-p "jest"   pkgstr)) 'jest)
+     (t nil))))
+
+(defun my/ts--current-test-name ()
+  "Return the nearest test name around point, or nil.
+Looks for it(…)/test(…) and captures the first string argument."
+  (save-excursion
+    (let ((limit (max (point-min) (- (point) 4000))) ; search up a bit
+          (name  nil))
+      (when (re-search-backward "\\_<\\(it\\|test\\)\\(\\.only\\)?\\s-*(" limit t)
+        (let ((start (point)))
+          ;; find first quoted string within ~10 lines after call
+          (when (re-search-forward "\\s-*\\([\"'`]\\)\\(\\(?:.\\|\n\\)*?\\)\\1"
+                                   (save-excursion (goto-char start)
+                                                   (line-end-position 10))
+                                   t)
+            (setq name (match-string-no-properties 2)))))
+      name)))
+
+(defun my/ts--single-test-command (root file testname)
+  "Build a shell command to run FILE and optional TESTNAME with the detected runner."
+  (let* ((runner (my/ts--detect-runner root))
+         (fileq  (shell-quote-argument (file-relative-name file root)))
+         (tflag  (when testname (format " -t %s" (shell-quote-argument testname)))))
+    (pcase runner
+      ('vitest (format "npx vitest run %s%s" fileq (or tflag "")))
+      ('jest   (format "npx jest --runInBand %s%s" fileq (or tflag "")))
+      (_ "echo \"Cannot detect vitest or jest. Add a test script or install a runner.\" && exit 1"))))
+
+(defun my/ts-test-at-point ()
+  "Run only the test case at point (Vitest/Jest)."
+  (interactive)
+  (let* ((root (file-name-as-directory (my/ts--project-root)))
+         (file (buffer-file-name))
+         (test (my/ts--current-test-name))
+         (default-directory root))
+    (unless file (user-error "Current buffer is not visiting a file"))
+    (compile (my/ts--single-test-command root file test))))
+
+(defun my/ts-test-file ()
+  "Run tests in the current file only."
+  (interactive)
+  (let* ((root (file-name-as-directory (my/ts--project-root)))
+         (file (buffer-file-name))
+         (default-directory root))
+    (unless file (user-error "Current buffer is not visiting a file"))
+    (compile (my/ts--single-test-command root file nil))))
+
+;; Keybinds (keep C-c t for whole project; add these:)
+(with-eval-after-load 'typescript-ts-mode
+  (define-key typescript-ts-mode-map (kbd "C-c C-t") #'my/ts-test-at-point)
+  (define-key typescript-ts-mode-map (kbd "C-c C-f") #'my/ts-test-file))
+(with-eval-after-load 'tsx-ts-mode
+  (define-key tsx-ts-mode-map (kbd "C-c C-t") #'my/ts-test-at-point)
+  (define-key tsx-ts-mode-map (kbd "C-c C-f") #'my/ts-test-file))
