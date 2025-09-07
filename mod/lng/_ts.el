@@ -97,11 +97,46 @@
 
 ;;; --- Test runner (C-c t) ---
 
+
+;; Markers we consider a TS subproject root (ordered by preference)
+(defvar my/ts-root-markers
+  '("tsconfig.json"
+    "vitest.config.ts" "vitest.config.js" "vitest.config.mjs" "vitest.config.cjs"
+    "jest.config.ts"   "jest.config.js"   "jest.config.mjs"   "jest.config.cjs"
+    "package.json"
+    ".project-root")                      ;; <- create this file to force-root
+  "Files that indicate the nearest TypeScript project root.")
+
+;; Optional hard override (can be set via .dir-locals.el)
+(defvar-local my/ts-project-root-override nil
+  "If non-nil, use this directory as the TS project root for the current buffer.")
+
+(defun my/ts--nearest-file-up (start files)
+  "Return nearest ancestor of START containing any FILES."
+  (let* ((dir (file-truename (file-name-as-directory start)))
+         (prev nil)
+         (hit  nil))
+    (while (and dir (not (equal dir prev)) (not hit))
+      (dolist (f files)
+        (when (and (not hit) (file-exists-p (expand-file-name f dir)))
+          (setq hit dir)))
+      (setq prev dir
+            dir  (file-name-directory (directory-file-name dir))))
+    hit))
+
 (defun my/ts--project-root ()
-  (or (when (fboundp 'project-current)
+  "Best-effort TS subproject root:
+   1) buffer-local override,
+   2) nearest TS marker (tsconfig/jest/vitest/package.json/.project-root),
+   3) fallback to project.el root,
+   4) current directory."
+  (or my/ts-project-root-override
+      (and (buffer-file-name)
+           (my/ts--nearest-file-up (file-name-directory (buffer-file-name))
+                                   my/ts-root-markers))
+      (when (fboundp 'project-current)
         (when-let ((pr (project-current nil)))
           (ignore-errors (project-root pr))))
-      (locate-dominating-file default-directory "package.json")
       default-directory))
 
 (defun my/ts--detect-test-cmd (root)
@@ -217,3 +252,19 @@ Looks for it(…)/test(…) and captures the first string argument."
 (with-eval-after-load 'tsx-ts-mode
   (define-key tsx-ts-mode-map (kbd "C-c C-t") #'my/ts-test-at-point)
   (define-key tsx-ts-mode-map (kbd "C-c C-f") #'my/ts-test-file))
+
+;;; Always use spaces, not tabs
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq typescript-ts-mode-indent-offset 2)
+(setq tsx-ts-mode-indent-offset 2)   ;; Emacs 29 TSX
+
+;;; Make sure SPACE is a plain self-insert in TS buffers
+(with-eval-after-load 'typescript-ts-mode
+  (define-key typescript-ts-mode-map (kbd "SPC") #'self-insert-command))
+(with-eval-after-load 'tsx-ts-mode
+  (define-key tsx-ts-mode-map (kbd "SPC") #'self-insert-command))
+
+;;; If SPACE still jumps to an indent column, turn off electric indent locally
+(add-hook 'typescript-ts-mode-hook (lambda () (electric-indent-local-mode -1)))
+(add-hook 'tsx-ts-mode-hook        (lambda () (electric-indent-local-mode -1)))
