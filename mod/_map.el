@@ -45,6 +45,7 @@
 (load "_json.el")
 (load "_rest.el")
 (load "_yaml.el")
+(load "_dockerfile.el")
 (load "_sql.el")
 (load "_md.el")
 (load "_mmd.el")
