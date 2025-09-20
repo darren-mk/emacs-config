@@ -18,11 +18,15 @@
 
 (use-package gotest
   :ensure t
-  :commands (go-test-current-file go-test-current-test
-             go-test-current-project go-test-current-benchmark)
+  :commands (go-test-current-file
+             go-test-current-test
+             go-test-current-project
+             go-test-current-benchmark)
   :init
   (with-eval-after-load 'go-mode
     (define-key go-mode-map (kbd "C-c t f") #'go-test-current-file)
     (define-key go-mode-map (kbd "C-c t t") #'go-test-current-test)
     (define-key go-mode-map (kbd "C-c t p") #'go-test-current-project)
     (define-key go-mode-map (kbd "C-c t b") #'go-test-current-benchmark)))
+
+(setq go-test-args "-v -count=1 -race")
