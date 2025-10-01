@@ -1,8 +1,8 @@
 (cond
  ((eq system-type 'gnu/linux)
-  (let ((font-list '("Bitstream Vera Sans Mono-10"
-                     "DejaVu Sans Mono-10"
-                     "monospace-10")))
+  (let ((font-list '("Bitstream Vera Sans Mono-9"
+                     "DejaVu Sans Mono-9"
+                     "monospace-9")))
     (catch 'found
       (dolist (font font-list)
         (when (find-font (font-spec :name font))
