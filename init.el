@@ -16,10 +16,12 @@
  '(ignored-local-variable-values
    '((eval put 'test-js-eval 'common-lisp-indent-function 1)
      (eval put 'test-ps-js 'common-lisp-indent-function 1)
-     (eval put 'mailer-merge-common-variables 'racket-indent-function
-           #'begin)
-     (Package . JSON) (Syntax . ANSI-COMMON-LISP)
-     (Syntax . ANSI-Common-Lisp) (Base . 10) (Package . CL-USER)
+     (eval put 'mailer-merge-common-variables 'racket-indent-function #'begin)
+     (Package . JSON)
+     (Syntax . ANSI-COMMON-LISP)
+     (Syntax . ANSI-Common-Lisp)
+     (Base . 10)
+     (Package . CL-USER)
      (Syntax . COMMON-LISP)))
  '(package-selected-packages
    '(amx apheleia cider company corfu crm-custom dockerfile-mode

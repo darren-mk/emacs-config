@@ -62,7 +62,7 @@
 ;;(load "_hs.el")
 ;;(load "_purs.el")
 ;;(load "_rb.el")
-;;(load "_lisp.el")
+(load "_lisp.el")
 ;;(load "_rkt.el")
 ;;(load "_elm.el")
 ;;(load "_dart.el")
