@@ -26,10 +26,6 @@
   ;; (add-to-list 'exec-path (expand-file-name "~/.dotnet/tools"))
   :config
   (add-hook 'fsharp-mode-hook #'eglot-ensure)
-  ;; Useful: format on save via Eglot (uses Fantomas through FSAC)
-  (add-hook 'fsharp-mode-hook
-            (lambda ()
-              (add-hook 'before-save-hook #'eglot-format-buffer nil t)))
   ;; Optional: tailor FSAC behavior
   (setq eglot-workspace-configuration
         '(:FSharp
