@@ -5,42 +5,26 @@
 ;;   - export PATH="$HOME/.dotnet/tools:$PATH"
 
 (use-package fsharp-mode
+  :defer t
   :ensure t
   :mode (("\\.fs[iylx]?\\'" . fsharp-mode))
-  :init
-  ;; Make sure fsi is the SDK one
-  (setq fsharp-interactive-command "dotnet fsi")
+  :init (setq fsharp-interactive-command "dotnet fsi")
   :config
-  (add-hook 'fsharp-mode-hook
-            (lambda ()
-              (setq-local tab-width 4
-                          indent-tabs-mode nil
-                          fsharp-indent-offset 4))))
+  (add-hook 'fsharp-mode-hook 'highlight-indentation-mode))
 
 (use-package eglot-fsharp
   :ensure t
   :after (fsharp-mode eglot)
-  :init
-  ;; If fsautocomplete isn't on PATH, set it explicitly:
-  ;; (setenv "PATH" (concat (expand-file-name "~/.dotnet/tools:") (getenv "PATH")))
-  ;; (add-to-list 'exec-path (expand-file-name "~/.dotnet/tools"))
   :config
   (add-hook 'fsharp-mode-hook #'eglot-ensure)
-  ;; Optional: tailor FSAC behavior
-  (setq eglot-workspace-configuration
-        '(:FSharp
-          (:AutomaticWorkspaceInit
-           t
-           :EnableAnalyzers true
-           :KeywordsAutocomplete true
-           :Linter (:Enabled true)))))
+  (add-hook 'fsharp-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook #'eglot-format-buffer nil t))))
 
 (use-package corfu
   :ensure t
-  :init
-  (global-corfu-mode)
+  :init (global-corfu-mode)
   :config
-  ;; Sensible sizes; keep list tall enough without going wild
   (setq corfu-min-width 25
         corfu-max-width 100
         corfu-min-height 6
@@ -50,8 +34,7 @@
         corfu-cycle t
         corfu-separator ?\s
         corfu-preview-current t
-        corfu-scroll-margin 4
-        tab-always-indent 'complete)
+        corfu-scroll-margin 4)
   (corfu-popupinfo-mode 1)
   ;; Show docs after a short delay (auto . manual)
   (setq corfu-popupinfo-delay '(0.6 . 0.1))
@@ -102,8 +85,7 @@
       (if match
           (setq done t)
         (setq dir (let ((p (directory-file-name (file-name-directory dir))))
-                    (unless (equal p dir) p))))
-      )
+                    (unless (equal p dir) p)))))
     (or match
         ;; fallback: any fsproj in project root
         (car (directory-files (or root default-directory) t ".*\\.fsproj\\'"))
