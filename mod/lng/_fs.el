@@ -4,18 +4,35 @@
 ;;   - dotnet tool install -g fantomas   ;; optional
 ;;   - export PATH="$HOME/.dotnet/tools:$PATH"
 
+(add-to-list
+ 'exec-path
+ (expand-file-name "~/.dotnet/tools"))
+
+(setenv "PATH"
+        (concat (expand-file-name "~/.dotnet/tools:")
+                (getenv "PATH")))
+
+(with-eval-after-load 'eglot
+  (setf (alist-get 'fsharp-mode eglot-server-programs)
+        (list (expand-file-name "~/.dotnet/tools/fsautocomplete"))))
+
+(defun set-indentation ()
+  (setq-local
+   tab-width 4
+   indent-tabs-mode nil
+   fsharp-indent-offset 4))
+
+(defun insert-fact-attr ()
+  "insert [<Fact>] at point"
+  (interactive) (insert "[<Fact>]"))
+
 (use-package fsharp-mode
   :ensure t
   :mode (("\\.fs[iylx]?\\'" . fsharp-mode))
-  :init
-  ;; Make sure fsi is the SDK one
-  (setq fsharp-interactive-command "dotnet fsi")
-  :config
-  (add-hook 'fsharp-mode-hook
-            (lambda ()
-              (setq-local tab-width 4
-                          indent-tabs-mode nil
-                          fsharp-indent-offset 4))))
+  :init (setq fsharp-interactive-command "dotnet fsi")
+  :hook ((fsharp-mode . set-indentation)
+         (fsharp-mode . eglot-ensure))
+  :bind (:map fsharp-mode-map ("C-c f" . insert-fact-attr)))
 
 (use-package eglot-fsharp
   :ensure t
@@ -34,6 +51,21 @@
            :EnableAnalyzers true
            :KeywordsAutocomplete true
            :Linter (:Enabled true)))))
+
+(use-package reformatter
+  :ensure t)
+
+(reformatter-define fantomas-format
+                    :program "fantomas"
+                    :args '("--stdin" "--stdout"))
+
+(add-hook 'fsharp-mode-hook
+          #'fantomas-format-on-save-mode)
+
+(with-eval-after-load 'fsharp-mode
+  (define-key fsharp-mode-map
+              (kbd "C-c =")
+              #'fantomas-format-buffer))
 
 (use-package corfu
   :ensure t
@@ -60,7 +92,8 @@
     (corfu-history-mode 1)
     (add-to-list 'savehist-additional-variables 'corfu-history)))
 
-(use-package nerd-icons :ensure t)
+(use-package nerd-icons
+  :ensure t)
 
 (use-package nerd-icons-completion
   :ensure t
@@ -72,8 +105,9 @@
 (use-package nerd-icons-corfu
   :ensure t
   :after corfu
-  :config
-  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
+  :config (add-to-list
+           'corfu-margin-formatters
+           #'nerd-icons-corfu-formatter))
 
 (use-package orderless
   :ensure t
@@ -102,8 +136,7 @@
       (if match
           (setq done t)
         (setq dir (let ((p (directory-file-name (file-name-directory dir))))
-                    (unless (equal p dir) p))))
-      )
+                    (unless (equal p dir) p)))))
     (or match
         ;; fallback: any fsproj in project root
         (car (directory-files (or root default-directory) t ".*\\.fsproj\\'"))
@@ -158,5 +191,5 @@ Uses xUnit filter on DisplayName (works well when function name is unique)."
 (with-eval-after-load 'fsharp-mode
   (define-key fsharp-mode-map (kbd "C-c t a") #'dk/dotnet-test-all)
   (define-key fsharp-mode-map (kbd "C-c t p") #'dk/dotnet-test-project)
-  (define-key fsharp-mode-map (kbd "C-c C-c") #'dk/dotnet-test-at-point)
+  (define-key fsharp-mode-map (kbd "C-c c") #'dk/dotnet-test-at-point)
   (define-key fsharp-mode-map (kbd "C-c t w") #'dk/dotnet-test-watch))
