@@ -17,6 +17,7 @@ tramp
 
 # Org-mode
 .org-id-locations
+org-persist/
 *_archive
 
 # flymake-mode
