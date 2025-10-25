@@ -38,7 +38,7 @@
 (load "_showparen.el") ;; show-paren-mode
 
 ;;; Load language configs
-(add-to-list 'load-path "~/.emacs.d/mod/lng")
+(add-to-list 'load-path "~/.emacs.d/mod/languages")
 (load "_el.el")
 (load "_org.el")
 (load "_web.el")
@@ -50,28 +50,16 @@
 (load "_md.el")
 (load "_mmd.el")
 (load "_gql.el")
+(load "_cpp.el")
 (load "_clj.el")
 (load "_fs.el")
 (load "_go.el")
-(load "_svelte.el")
 (load "_ocaml.el")
 (load "_rust.el")
 (load "_py.el")
 (load "_ts.el")
-;;(load "_js.el")
-;;(load "_hs.el")
-;;(load "_purs.el")
-;;(load "_rb.el")
-;;(load "_lisp.el")
-;;(load "_rkt.el")
-;;(load "_elm.el")
-;;(load "_dart.el")
+(load "_js.el")
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/thm")
-;;(load "_spm.el") ;; spacemacs theme
-(load "_sld.el") ;; solarized theme
-;;(load "_tmr.el") ;; tomorrow theme
-;;(load "_bdg.el") ;; badger theme
-;;(load "_drc.el") ;; dracula theme
-;;(load "_doo.el") ;; doom theme
+(load "_sld.el")
