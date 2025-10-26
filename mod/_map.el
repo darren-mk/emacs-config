@@ -1,11 +1,11 @@
 ;;; Repositories
-(add-to-list 'load-path "~/.emacs.d/mod/pck")
+(add-to-list 'load-path "~/.emacs.d/mod/packaging")
 (load "_repositories.el") ;; repositories
 (load "_ensure.el") ;; install / require
 (load "_use-package.el") ;; use-package
 
 ;;; Navigation
-(add-to-list 'load-path "~/.emacs.d/mod/nav")
+(add-to-list 'load-path "~/.emacs.d/mod/navigation")
 (load "_ido.el")
 (load "_scroll.el")
 (load "_dired.el")
@@ -13,7 +13,7 @@
 (load "_treemacs.el")
 
 ;;; Code-editing features
-(add-to-list 'load-path "~/.emacs.d/mod/edt")
+(add-to-list 'load-path "~/.emacs.d/mod/editing")
 (load "_magit.el") ;; magit
 (load "_flycheck.el") ;; flycheck
 (load "_backup.el") ;; back up previous save
@@ -26,11 +26,9 @@
 (load "_company.el") ;; company
 (load "_yasnippet.el") ;; yasnippet
 (load "_indent.el")
-;;(load "_parinfer.el") ;; parinfer
-;;(load "_smx.el") ;; smex
 
 ;;; Load UI configs
-(add-to-list 'load-path "~/.emacs.d/mod/vsl")
+(add-to-list 'load-path "~/.emacs.d/mod/visual")
 (load "_bar.el") ;; bar
 (load "_line.el") ;; line
 (load "_space.el") ;; space
@@ -62,5 +60,5 @@
 (load "_js.el")
 
 ;;; Load theme configs
-(add-to-list 'load-path "~/.emacs.d/mod/thm")
+(add-to-list 'load-path "~/.emacs.d/mod/themes")
 (load "_sld.el")
