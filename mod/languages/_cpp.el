@@ -1,7 +1,11 @@
 ;;;; prerequisite
 ;;; mac
-;; brew install llvm
-;; echo 'export PATH="/opt/homebrew/opt/llvm/bin:$PATH"' >> ~/.zshrc
+;; $ brew install llvm
+;; $ echo 'export PATH="/opt/homebrew/opt/llvm/bin:$PATH"' >> ~/.zshrc
+;;; fedora (as of vers 42)
+;; $ sudo dnf install gcc-c++
+;; $ sudo dnf install @development-tools
+;; $ sudo dnf install clang clang-tools-extra clang-format
 
 ;;; --- Packages & MELPA ---
 (setq package-selected-packages
@@ -18,9 +22,9 @@
 ;; Enable Helm + common remaps
 (helm-mode 1)
 (require 'helm-xref)
-(define-key global-map [remap find-file]               #'helm-find-files)
+(define-key global-map [remap find-file] #'helm-find-files)
 (define-key global-map [remap execute-extended-command] #'helm-M-x)
-(define-key global-map [remap switch-to-buffer]        #'helm-mini)
+(define-key global-map [remap switch-to-buffer] #'helm-mini)
 
 ;;; --- Which-key ---
 (which-key-mode 1)
@@ -29,24 +33,22 @@
 (setq gc-cons-threshold (* 100 1024 1024)
       read-process-output-max (* 1024 1024))
 
-;;; --- Company: use capf (Eglot-driven) ---
-(require 'company)
+;;; --- company: use capf (eglot-driven) ---
 (add-hook 'after-init-hook #'global-company-mode)
 (setq company-backends '(company-capf))
 
-;;; --- YAS globally ---
+;; yas globally
 (yas-global-mode 1)
 
-;;; --- Eglot (built-in LSP client) ---
-(require 'eglot)
-
-;; Prefer Homebrew clangd if present; fallback to PATH
+;; clangd path
 (let* ((brew-clangd "/opt/homebrew/opt/llvm/bin/clangd")
-       (clangd (or (and (file-executable-p brew-clangd) brew-clangd)
-                   (executable-find "clangd")
-                   "clangd")))
+       (linux-clangd "/usr/bin/clangd")
+       (clangd (cond
+                ((file-executable-p brew-clangd) brew-clangd)
+                ((file-executable-p linux-clangd) linux-clangd)
+                (t (message "warn: cland not found")))))
   (setq eglot-server-programs
-        `((c-mode  . (,clangd))
+        `((c-mode . (,clangd))
           (c++-mode . (,clangd)))))
 (add-hook 'c-mode-hook  #'eglot-ensure)
 (add-hook 'c++-mode-hook #'eglot-ensure)
@@ -62,7 +64,7 @@
 (add-hook 'c-mode-hook  #'my-c-cpp-eglot-setup)
 (add-hook 'c++-mode-hook #'my-c-cpp-eglot-setup)
 
-;; Handy Eglot keys under C-c e
+;; handy eglot keys under C-c e
 (define-prefix-command 'my-eglot-map)
 (global-set-key (kbd "C-c e") 'my-eglot-map)
 (define-key my-eglot-map (kbd "r") #'eglot-rename)
@@ -72,14 +74,22 @@
 (define-key my-eglot-map (kbd "g") #'xref-find-definitions)
 (define-key my-eglot-map (kbd "b") #'xref-pop-marker-stack)
 
-;;; --- Build & run (your original idea, with save-before-compile) ---
+;;; --- build & run ---
+
+(defun detect-cxx ()
+  (or (executable-find "g++")
+      (executable-find "clangd++")
+      (message "warn: cpp compiler not found")))
+
 (defun cpp-compile-and-run-this ()
   "Compile current .cpp with clang++ into build/<name> and run it."
   (interactive)
   (let* ((src (buffer-file-name))
          (name (file-name-base src))
+         (cxx (detect-cxx))
          (cmd (format
-               "mkdir -p build && clang++ -std=c++20 -g -Wall -Wextra %s -o build/%s && ./build/%s"
+               "mkdir -p build && %s -std=c++20 -g -Wall -Wextra %s -o build/%s && ./build/%s"
+               (shell-quote-argument cxx)
                (shell-quote-argument src) name name)))
     (save-buffer)
     (compile cmd)))

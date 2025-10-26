@@ -14,17 +14,17 @@
 
 ;;; Code-editing features
 (add-to-list 'load-path "~/.emacs.d/mod/editing")
-(load "_magit.el") ;; magit
-(load "_flycheck.el") ;; flycheck
-(load "_backup.el") ;; back up previous save
-(load "_yesno.el") ;; yes/no to y/n format
-(load "_path.el") ;; get environment variables like path
-(load "_paredit.el") ;; paredit
-(load "_autocomplete.el") ;; autocomplete
-(load "_lsp.el") ;; lsp
-(load "_eglot.el") ;; eglot
-(load "_company.el") ;; company
-(load "_yasnippet.el") ;; yasnippet
+(load "_magit.el")
+(load "_flycheck.el")
+(load "_backup.el")
+(load "_yesno.el")
+(load "_path.el")
+(load "_paredit.el")
+(load "_autocomplete.el")
+(load "_lsp.el")
+(load "_eglot.el")
+(load "_company.el")
+(load "_yasnippet.el")
 (load "_indent.el")
 
 ;;; Load UI configs
@@ -61,4 +61,4 @@
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/themes")
-(load "_sld.el")
+(load "_badger.el")
