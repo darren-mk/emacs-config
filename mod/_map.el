@@ -25,6 +25,7 @@
 (load "_eglot.el") ;; eglot
 (load "_company.el") ;; company
 (load "_yasnippet.el") ;; yasnippet
+(load "_indent.el")
 ;;(load "_parinfer.el") ;; parinfer
 ;;(load "_smx.el") ;; smex
 
