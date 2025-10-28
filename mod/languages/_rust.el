@@ -1,7 +1,5 @@
 ;; installation on fedora
-;; $ sudo dnf install rustc
-;; $ sudo dnf install cargo
-;; $ sudo dnf install clippy
+;; $ sudo dnf install rustc cargo clippy
 
 ;; installation on mac
 ;; $ brew install rustup

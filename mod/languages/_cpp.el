@@ -6,6 +6,7 @@
 ;; $ sudo dnf install gcc-c++
 ;; $ sudo dnf install @development-tools
 ;; $ sudo dnf install clang clang-tools-extra clang-format
+;; $ sudo dnf install cmake make
 
 ;;; --- Packages & MELPA ---
 (setq package-selected-packages
