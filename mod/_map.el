@@ -11,6 +11,7 @@
 (load "_dired.el")
 (load "_projectile.el")
 (load "_treemacs.el")
+(load "_browser.el")
 
 ;;; Code-editing features
 (add-to-list 'load-path "~/.emacs.d/mod/editing")
