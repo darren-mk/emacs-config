@@ -8,25 +8,6 @@
 ;; $ sudo dnf install clang clang-tools-extra clang-format
 ;; $ sudo dnf install cmake make
 
-;;; --- Packages & MELPA ---
-(setq package-selected-packages
-      '(eglot yasnippet helm helm-xref projectile hydra company avy which-key))
-(when (cl-find-if-not #'package-installed-p package-selected-packages)
-  (package-refresh-contents)
-  (mapc #'package-install package-selected-packages))
-
-;;; --- Helm (keep) but avoid Ido conflict ---
-;; Turn Ido off BEFORE enabling Helm (they're incompatible).
-(when (fboundp 'ido-mode) (ignore-errors (ido-mode -1)))
-(setq ido-everywhere nil)
-
-;; Enable Helm + common remaps
-(helm-mode 1)
-(require 'helm-xref)
-(define-key global-map [remap find-file] #'helm-find-files)
-(define-key global-map [remap execute-extended-command] #'helm-M-x)
-(define-key global-map [remap switch-to-buffer] #'helm-mini)
-
 ;;; --- Which-key ---
 (which-key-mode 1)
 
