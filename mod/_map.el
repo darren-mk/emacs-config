@@ -1,8 +1,9 @@
 ;;; Repositories
 (add-to-list 'load-path "~/.emacs.d/mod/packaging")
-(load "_repositories.el") ;; repositories
-(load "_ensure.el") ;; install / require
-(load "_use-package.el") ;; use-package
+(load "_repositories.el")
+(load "_ensure.el")
+(load "_use-package.el")
+(load "_path.el")
 
 ;;; Navigation
 (add-to-list 'load-path "~/.emacs.d/mod/navigation")
