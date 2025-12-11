@@ -62,4 +62,4 @@
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/themes")
-(load "_badger.el")
+(load "_ef.el")
