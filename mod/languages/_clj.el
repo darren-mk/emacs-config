@@ -29,43 +29,27 @@
          ("\\.cljc\\'" . clojurec-mode)
          ("\\.cljs\\'" . clojurescript-mode)
          ("lein-env"   . enh-ruby-mode))
-  :hook ((clojure-mode       . paredit-mode)
+  :hook ((clojure-mode . paredit-mode)
          (clojurescript-mode . paredit-mode)
-         (clojurec-mode      . paredit-mode)))
+         (clojurec-mode . paredit-mode)))
 
-;; eglot
-(use-package eglot
-  :ensure t
-  :hook ((clojure-mode       . eglot-ensure)
-         (clojurescript-mode . eglot-ensure)
-         (clojurec-mode      . eglot-ensure))
-  :config
-  (add-to-list 'eglot-server-programs '(clojure-mode       . ("clojure-lsp")))
-  (add-to-list 'eglot-server-programs '(clojurescript-mode . ("clojure-lsp")))
-  (add-to-list 'eglot-server-programs '(clojurec-mode      . ("clojure-lsp"))))
-
-;; cider
 (use-package cider
   :ensure t
   :after clojure-mode
-  :hook ((clojure-mode    . cider-mode)
+  :hook ((clojure-mode . cider-mode)
          (cider-repl-mode . paredit-mode))
   :custom
   (cider-save-file-on-load t)
   (cider-repl-display-help-banner nil))
 
-;; company
-(use-package company
-  :ensure t
-  :hook ((clojure-mode    . company-mode)
-         (cider-repl-mode . company-mode))
-  :custom
-  (company-minimum-prefix-length 1))
+(with-eval-after-load 'lsp-mode
+  (add-hook 'clojure-mode-hook #'lsp-deferred)
+  (add-hook 'clojurescript-mode-hook #'lsp-deferred)
+  (add-hook 'clojurec-mode-hook #'lsp-deferred))
 
-;; flycheck + clj-kondo
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
+(with-eval-after-load 'company
+  (add-hook 'clojure-mode-hook #'company-mode)
+  (add-hook 'cider-repl-mode-hook #'company-mode))
 
 (use-package flycheck-clj-kondo
   :ensure t
