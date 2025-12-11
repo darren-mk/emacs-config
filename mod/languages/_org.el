@@ -1,7 +1,26 @@
-;; install org more 
-(ensure-installed-and-require 'org)
-(ensure-installed-and-require 'ox-epub)
-;; integrate with ac
-;; https://github.com/aki2o/org-ac
-(ensure-installed-and-require 'org-ac)
-(org-ac/config-default)
+(set-face-attribute
+ 'variable-pitch nil
+ :family "Iosevka Aile"
+ :height 140
+ :weight 'regular)
+
+(use-package org
+  :hook ((org-mode . visual-line-mode)
+         (org-mode . variable-pitch-mode)
+         (org-mode . my/org-mode-setup))
+  :config
+  (defun my/org-mode-setup ()
+    "Personal tweaks for Org buffers."
+    (setq-local line-spacing 0.15)
+    (setq org-pretty-entities t
+          org-hide-emphasis-markers t
+          org-image-actual-width '(400))
+    (set-face-attribute 'org-code nil :inherit '(fixed-pitch))
+    (set-face-attribute 'org-verbatim nil :inherit '(fixed-pitch))
+    (set-face-attribute 'org-block nil :inherit '(fixed-pitch))
+    (set-face-attribute 'org-block-begin-line nil :inherit '(fixed-pitch))
+    (set-face-attribute 'org-block-end-line nil :inherit '(fixed-pitch))
+    (set-face-attribute 'org-table nil :inherit '(fixed-pitch))
+    (set-face-attribute 'org-formula nil :inherit '(fixed-pitch))
+    (set-face-attribute 'org-meta-line nil :inherit '(fixed-pitch))
+    (set-face-attribute 'org-document-info-keyword nil :inherit '(fixed-pitch))))
