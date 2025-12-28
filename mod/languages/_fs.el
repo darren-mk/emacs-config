@@ -1,8 +1,13 @@
-;; Prereqs (Fedora):
-;;   - dnf install dotnet-sdk-8.0
-;;   - dotnet tool install -g fsautocomplete
-;;   - dotnet tool install -g fantomas   ;; optional
-;;   - export PATH="$HOME/.dotnet/tools:$PATH"
+
+;; Fedora:
+;; dnf install dotnet-sdk-8.0
+;; dotnet tool install -g fsautocomplete
+;; dotnet tool install -g fantomas
+;; export PATH="$HOME/.dotnet/tools:$PATH"
+
+;; macOS:
+;; brew install --cask dotnet-sdk
+;; dotnet tool install -g fantomas
 
 (add-to-list
  'exec-path
@@ -52,20 +57,18 @@
            :KeywordsAutocomplete true
            :Linter (:Enabled true)))))
 
-(use-package reformatter
-  :ensure t)
-
-(reformatter-define fantomas-format
-                    :program "fantomas"
-                    :args '("--stdin" "--stdout"))
+(defun dk/fantomas-format-buffer ()
+  (interactive)
+  (call-process-region
+   (point-min) (point-max)
+   "fantomas"
+   t t nil "--stdin"))
 
 (add-hook 'fsharp-mode-hook
-          #'fantomas-format-on-save-mode)
-
-(with-eval-after-load 'fsharp-mode
-  (define-key fsharp-mode-map
-              (kbd "C-c =")
-              #'fantomas-format-buffer))
+          (lambda ()
+            (add-hook 'before-save-hook
+                      #'dk/fantomas-format-buffer
+                      nil t)))
 
 (use-package corfu
   :ensure t
@@ -157,7 +160,7 @@
 
 (defun dk--xunit-name-at-point ()
   "Best-effort grab the xUnit test name at point (F#).
-Looks for `[<Fact>]`/`[<Theory>]` above and returns the `let name`."
+   Looks for `[<Fact>]`/`[<Theory>]` above and returns the `let name`."
   (save-excursion
     (let ((case-fold-search t)
           name)
