@@ -1,37 +1,29 @@
-;; install jdk
-;; https://clojure.org/guides/install_clojure#java
 ;; brew install --cask temurin@21
-
-;; install clojure cli
-;; https://clojure.org/guides/install_clojure
 ;; brew install clojure/tools/clojure
-
-;; install clojure-lsp
-;; https://formulae.brew.sh/formula/clojure-lsp
 ;; brew install clojure-lsp
 
-;; mac PATH fix
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns x))
   :ensure t
   :config
   (exec-path-from-shell-initialize))
 
-;; paredit
-(use-package paredit
-  :ensure t)
-
-;; clojure modes
 (use-package clojure-mode
   :ensure t
-  :mode (("\\.edn\\'"  . clojure-mode)
-         ("\\.clj\\'"  . clojure-mode)
-         ("\\.cljc\\'" . clojurec-mode)
-         ("\\.cljs\\'" . clojurescript-mode)
-         ("lein-env"   . enh-ruby-mode))
+  :mode (("\\.edn\\'"   . clojure-mode)
+         ("\\.clj\\'"   . clojure-mode)
+         ("\\.cljc\\'"  . clojurec-mode)
+         ("\\.cljs\\'"  . clojurescript-mode)
+         ("lein-env"    . enh-ruby-mode))
   :hook ((clojure-mode . paredit-mode)
          (clojurescript-mode . paredit-mode)
-         (clojurec-mode . paredit-mode)))
+         (clojurec-mode . paredit-mode)
+         (clojure-mode . my-clj-format-on-save)
+         (clojurescript-mode . my-clj-format-on-save)
+         (clojurec-mode . my-clj-format-on-save))
+  :init
+  (defun my-clj-format-on-save ()
+    (add-hook 'before-save-hook #'cider-format-buffer nil t)))
 
 (use-package cider
   :ensure t
@@ -54,3 +46,5 @@
 (use-package flycheck-clj-kondo
   :ensure t
   :after (clojure-mode flycheck))
+
+
