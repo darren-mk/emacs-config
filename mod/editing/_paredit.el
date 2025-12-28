@@ -1,7 +1,9 @@
-(ensure-installed-and-require 'paredit)
-
-;; https://www.emacswiki.org/emacs/ParEdit
-(autoload 'enable-paredit-mode
-  "paredit"
-  "Turn on pseudo-structural editing of Lisp code."
-  t)
+(use-package paredit
+  :ensure t
+  :commands enable-paredit-mode
+  :hook ((emacs-lisp-mode
+          clojure-mode
+          clojurescript-mode
+          lisp-mode
+          scheme-mode)
+         . enable-paredit-mode))
