@@ -4,12 +4,6 @@
 ;; brew install clojure/tools/clojure
 ;; brew install clojure-lsp
 
-(use-package exec-path-from-shell
-  :if (memq window-system '(mac ns x))
-  :ensure t
-  :config
-  (exec-path-from-shell-initialize))
-
 (use-package clojure-mode
   :ensure t
   :mode (("\\.edn\\'"   . clojure-mode)
