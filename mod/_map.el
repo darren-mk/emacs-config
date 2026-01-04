@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;;; Repositories
 (add-to-list 'load-path "~/.emacs.d/mod/packaging")
 (load "_repositories.el")
@@ -15,11 +17,11 @@
 
 ;;; Code-editing features
 (add-to-list 'load-path "~/.emacs.d/mod/editing")
+(load "_path.el")
 (load "_magit.el")
 (load "_flycheck.el")
 (load "_backup.el")
 (load "_yesno.el")
-(load "_path.el")
 (load "_paredit.el")
 (load "_autocomplete.el")
 (load "_lsp.el")
@@ -27,6 +29,8 @@
 (load "_company.el")
 (load "_yasnippet.el")
 (load "_indent.el")
+(load "_vterm.el")
+(load "_aidermacs.el")
 
 ;;; Load UI configs
 (add-to-list 'load-path "~/.emacs.d/mod/visual")
