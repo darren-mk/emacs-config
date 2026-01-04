@@ -1,7 +1,9 @@
-;; installation on fedora
+;;; -*- lexical-binding: t; -*-
+
+;; fedora:
 ;; $ sudo dnf install rustc cargo clippy
 
-;; installation on mac
+;; mac:
 ;; $ brew install rustup
 ;; $ rustup-init
 ;; $ rustup component add rust-analyzer

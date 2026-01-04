@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (set-face-attribute
  'variable-pitch nil
  :family "Iosevka Aile"

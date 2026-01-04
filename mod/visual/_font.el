@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (cond
  ((eq system-type 'gnu/linux)
   (let ((font-list '("Bitstream Vera Sans Mono-9"

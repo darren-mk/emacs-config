@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;;;; prerequisite
 ;;; mac
 ;; $ brew install llvm

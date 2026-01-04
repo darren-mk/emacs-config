@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 
 ;; Fedora:
 ;; dnf install dotnet-sdk-8.0

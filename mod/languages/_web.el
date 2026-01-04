@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (ensure-installed-and-require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (setq js-indent-level 4)

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (use-package lsp-pyright
   :ensure t
   :custom (lsp-pyright-langserver-command "pyright")
@@ -5,7 +7,6 @@
                          (require 'lsp-pyright)
                          (lsp))))
 
-;; in your init.el
 (use-package pytest
   :ensure t
   :bind (("C-c t t" . pytest-one)

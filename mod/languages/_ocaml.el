@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (use-package tuareg
   :ensure t
   :config
@@ -29,14 +31,14 @@
   (define-key utop-minor-mode-map (kbd "C-c C-c") #'utop-eval-phrase))
 
 (add-hook 'tuareg-mode-hook
-  (lambda ()
-    (setq-local comment-column 0)
-    ;; Keep comments where you type them:
-    (setq-local comment-indent-function (lambda (&optional _arg) 0))
-    ;; Optional: don’t try to be clever with OCaml block comments
-    (setq-local tuareg-indent-leading-comments nil)))
+          (lambda ()
+            (setq-local comment-column 0)
+            ;; Keep comments where you type them:
+            (setq-local comment-indent-function (lambda (&optional _arg) 0))
+            ;; Optional: don’t try to be clever with OCaml block comments
+            (setq-local tuareg-indent-leading-comments nil)))
 
 (add-hook 'tuareg-mode-hook
-  (lambda ()
-    (setq-local comment-style 'multi-line)
-    (setq-local comment-continue "   ")))
+          (lambda ()
+            (setq-local comment-style 'multi-line)
+            (setq-local comment-continue "   ")))

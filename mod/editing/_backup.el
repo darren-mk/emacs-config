@@ -1,4 +1,5 @@
-;; set up where and how files are backed up
+;;; -*- lexical-binding: t; -*-
+
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
       backup-by-copying      t  ; Don't de-link hard links
       version-control        t  ; Use version numbers on backups

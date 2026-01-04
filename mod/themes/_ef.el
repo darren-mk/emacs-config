@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;;; _ef.el --- Theme setup -*- lexical-binding: t; -*-
 (use-package ef-themes
   :ensure t

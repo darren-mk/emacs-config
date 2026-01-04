@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; Enable packages.
 (ensure-installed-and-require 'js2-mode)
 (ensure-installed-and-require 'typescript-mode)
@@ -22,7 +24,7 @@
 (define-key js-mode-map (kbd "M-.") nil)
 
 (add-hook 'js2-mode-hook (lambda ()
-  (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+                           (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
 
 ;; Set indent space.
 ;; https://emacs.stackexchange.com/questions/37757/how-to-change-indent-size-for-typescript-layer-in-spacemacs

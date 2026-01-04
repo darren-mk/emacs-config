@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (defun ensure-installed-and-require (package)
   "Custom function to ensure a PACKAGE is installed and to require it."
   (unless (package-installed-p package)

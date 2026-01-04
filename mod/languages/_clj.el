@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; brew install --cask temurin@21
 ;; brew install clojure/tools/clojure
 ;; brew install clojure-lsp

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;;; _yaml.el --- config for yaml
 ;;; Commentary:
 ;;; Code:

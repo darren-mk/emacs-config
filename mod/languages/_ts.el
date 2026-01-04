@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;;; --- TypeScript with lsp-mode (Emacs 29+) ---
 
 ;; If you use use-package elsewhere, you can skip this bootstrap.

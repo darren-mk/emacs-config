@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;;; _hy.el --- Config for Hylang
 ;;; Commentary:
 ;;; Code:

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;;; _scroll.el --- Make scroll smoothly
 ;;; Commentary:
 ;;; Code:

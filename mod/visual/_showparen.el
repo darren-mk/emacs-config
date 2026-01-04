@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; https://www.emacswiki.org/emacs/ShowParenMode
 (show-paren-mode 1)
 (setq show-paren-delay 0)
