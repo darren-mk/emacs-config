@@ -46,7 +46,6 @@
 (load "_el.el")
 (load "_org.el")
 (load "_web.el")
-(load "_json.el")
 (load "_rest.el")
 (load "_yaml.el")
 (load "_dockerfile.el")
