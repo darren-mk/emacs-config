@@ -74,6 +74,7 @@ flycheck_*.el
 amx-items
 smex-items
 cider-history
+games
 
 # url
 url/
