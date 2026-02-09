@@ -29,7 +29,6 @@
 (load "_company.el")
 (load "_yasnippet.el")
 (load "_indent.el")
-(load "_vterm.el")
 (load "_aidermacs.el")
 
 ;;; Load UI configs
