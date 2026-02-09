@@ -51,17 +51,10 @@
 (load "_dockerfile.el")
 (load "_sql.el")
 (load "_md.el")
-(load "_mmd.el")
-(load "_gql.el")
-(load "_cpp.el")
-(load "_clj.el")
-(load "_fs.el")
-(load "_go.el")
-(load "_ocaml.el")
-(load "_rust.el")
-(load "_py.el")
-(load "_ts.el")
-(load "_js.el")
+
+;;; Select programming languages
+(add-to-list 'load-path "~/.emacs.d/mod")
+(load "_profile.el")
 
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/themes")
