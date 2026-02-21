@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t; -*-
 
-;; brew install libvterm
+;; brew install cmake libvterm
 
 (use-package vterm
   :ensure t)
