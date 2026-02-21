@@ -29,7 +29,6 @@
 (load "_company.el")
 (load "_yasnippet.el")
 (load "_indent.el")
-(load "_aidermacs.el")
 
 ;;; Load UI configs
 (add-to-list 'load-path "~/.emacs.d/mod/visual")
@@ -51,10 +50,10 @@
 (load "_sql.el")
 (load "_md.el")
 
-;;; Select programming languages
-(add-to-list 'load-path "~/.emacs.d/mod")
-(load "_profile.el")
-
 ;;; Load theme configs
 (add-to-list 'load-path "~/.emacs.d/mod/themes")
 (load "_ef.el")
+
+;;; Profile Selective
+(add-to-list 'load-path "~/.emacs.d/mod")
+(load "_profile.el")
