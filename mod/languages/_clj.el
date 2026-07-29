@@ -4,8 +4,6 @@
 ;; brew install clojure/tools/clojure
 ;; brew install clojure-lsp
 
-(defvar eglot-server-programs)
-
 (defun my-project-find-clj-root (dir)
   (when-let ((root (or (locate-dominating-file dir "deps.edn")
                        (locate-dominating-file dir "project.clj"))))
@@ -13,7 +11,24 @@
 
 (add-to-list 'project-find-functions #'my-project-find-clj-root)
 
-(declare-function eglot-format-buffer "eglot")
+(use-package lsp-mode
+  :ensure t
+  :hook ((clojure-mode       . lsp-deferred)
+         (clojurescript-mode . lsp-deferred)
+         (clojurec-mode      . lsp-deferred))
+  :custom
+  (lsp-headerline-breadcrumb-enable t)
+  (lsp-lens-enable t)
+  :commands (lsp lsp-deferred))
+
+(use-package lsp-ui
+  :ensure t
+  :after lsp-mode
+  :custom
+  (lsp-ui-doc-enable t)
+  (lsp-ui-sideline-enable t))
+
+(declare-function lsp-format-buffer "lsp-mode")
 
 (use-package clojure-mode
   :ensure t
@@ -24,9 +39,6 @@
   :hook ((clojure-mode       . paredit-mode)
          (clojurescript-mode . paredit-mode)
          (clojurec-mode      . paredit-mode)
-         (clojure-mode       . eglot-ensure)
-         (clojurescript-mode . eglot-ensure)
-         (clojurec-mode      . eglot-ensure)
          (clojure-mode       . corfu-mode)
          (clojurescript-mode . corfu-mode)
          (clojurec-mode      . corfu-mode)
@@ -35,13 +47,9 @@
          (clojurec-mode      . my-clj-format-on-save))
   :init
   (defun my-clj-format-on-save ()
-    (add-hook 'before-save-hook #'eglot-format-buffer nil t))
+    (add-hook 'before-save-hook #'lsp-format-buffer nil t))
   :config
-  (define-key paredit-mode-map (kbd "M-?") nil)
-  (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs
-                 '((clojure-mode clojurescript-mode clojurec-mode)
-		   . ("clojure-lsp")))))
+  (define-key paredit-mode-map (kbd "M-?") nil))
 
 (use-package cider
   :ensure t
